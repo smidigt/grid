@@ -1,18 +1,18 @@
 
 body {
 	background: url(../img/12_col.gif) center top repeat-y;
-	background-size: 100%;
+	background-size: 90%;
 }
 
 
 .container{
+	width: 90%;
 	height: 100%;
 	display: grid;
 	grid gap: 10px;
 	grid-template-columns: repeat(12, 1fr);
 	box-sizing: border-box;
-	margin-left:10px;
-	margin-right:10px;
+	margin:auto;
 }
 
 header{
@@ -79,26 +79,44 @@ footer{
 	border:1px solid black;
 	margin-top:20px;
 	grid-row: 12;
+	display:grid;
+	grid-template-columns: repeat(12, 1fr);
 	grid-column-start: 1;
 	grid-column-end: all;
 }
 
 .col-4{
 	height: 200px;
-	width:435px;
+	grid-column-start: 1;
+	grid-column-end:4;
 	display: inline-block;
-	margin:10px;
+	margin-right:10px;
 }
 
 .col-5{
 	display: inline-block;
 	height: 200px;
-	width:435px;
-	margin-left:30px;
+	grid-column-start: 4;
+	grid-column-end:7;
+	margin-left:10px;
+	margin-right:10px;
 }
 
-#left{
-	margin-left:30px;
+.col-6{
+	height: 200px;
+	grid-column-start: 7;
+	grid-column-end:10;
+	display: inline-block;
+	margin-right:10px;
+	margin-left:10px;
+}
+
+.col-7{
+	display: inline-block;
+	height: 200px;
+	grid-column-start: 10;
+	grid-column-end:all;
+	margin-left:10px;
 }
 
 @media screen and (max-width: 1200px) and (min-width: 960px) {
@@ -131,28 +149,9 @@ footer{
 		margin-left:20px;
 	}
 
-	.col-4{
-		width:205px;
-	}
-
-	.col-5{
-		width:215px;
-		margin-left:10px;
-	}
-
-	#left{
-		margin-left:11px;
-		margin-right:11px;
-	}
-
 }
 
 @media screen and (max-width: 960px) and (min-width: 768px) {
-
-	.container{
-		margin-left:5px;
-		margin-right:0px;
-	}
 
 	.col-1{
 		grid-column-start: 1;
@@ -183,21 +182,37 @@ footer{
 	}
 
 	footer{
+		grid-column-start: 1;
+		grid-column-end: all;
 		padding:0px;
-		margin:0px auto;
 		height: 100%;
 	}
 
 	.col-4{
-		width:350px;
-		margin-left:10px;
+		grid-column-start: 1;
+		grid-column-end: 7;
 	}
 
 	.col-5{
-		width:350px;
+		
+		grid-column-start: 7;
+		grid-column-end: all;
 		margin-left:10px;
 	}
 
+	.col-6{
+		
+		grid-column-start: 1;
+		grid-column-end: 7;
+		margin-left:10px;
+	}
+
+	.col-7{
+		
+		grid-column-start: 7;
+		grid-column-end: all;
+		margin-left:10px;
+	}
 }
 
 @media screen and (max-width: 768px) {
@@ -210,8 +225,7 @@ footer{
 		display: block;
 	}
 
-	[class*="col-"],.sidebar,.content,header{
-		width:100%;
+	[class*="col-"],.sidebar,.content,header,footer{
 		grid-column-start: 1;
 		grid-column-end: all;
 		display:block;
